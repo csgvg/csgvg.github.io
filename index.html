@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Multi-reference Co-Speech Gesture Video Generation via
+        Contrastive Learning">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSGVG</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7749G0HJZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L7749G0HJZ');
+</script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body" style="padding-bottom: 24px;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Multi-reference Co-Speech Gesture Video Generation via
+            Contrastive Learning</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">Anonymous Authors</a></span>
+          </div>
+
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Paper under double blind review</span>
+          </div> -->
+          <div class="is-size-8 publication-authors">
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section" style="padding-top: 0px;">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Using audio to animate avatars in still images with co-speech gestures has a wide range of applications in real-world scenarios such as virtual meetings and digital education, yet it remains a quite challenging task. Previous work often relied on single-image-driven techniques, which limited the quality of generated videos with larger motion amplitudes. Thus, we design a multi-reference renderer, which takes multiple reference images from different perspectives as input, to bridge the gap between target pose and a certain reference image and ensure overall consistency. Moreover, considering that speech and gesture are not strictly one-to-one mapping, we utilize contrastive learning to capture the subtle interplay between vocal context and corresponding gestures. Hence, the proposed system, which contains co-speech gesture generation and multi-reference renderer, not only enhances the naturalness and fluidity of the synthesized videos but also enables more expressive and dynamic animation. We conduct experiments on TED-Expreesive dataset and the experimental results indicate that the proposed system surpasses previous methods both objectively and subjectively. Video samples can be found on our demo page (csgvg.github.io).
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop is-centered has-text-centered">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Model Overview</h2>
+          <img src="./static/images/model.png"
+                    class="interpolation-image"
+                    alt="Interpolate start reference image."/>
+            <p>
+              Pipeline overview of our method. Our framework consists of three main components: <br>
+              1. A diffusion-based gesture generator that converts audio signals into normalized 3D gesture vectors. <br>
+              2. An EHPS predictor that estimates SMPLX parameters and camera parameters based on the reference image. Subsequently, the length of each vector in the normalized 3D gesture vectors is calculated using the SMPLX parameters, and the real-length skeleton is projected onto the image plane using the camera parameters. <br>
+              3. A renderer that generates high-fidelity frames by combining the reference images with the actual-length 2D gestures. <br>
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small"></section>
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Qualitive Comparison</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <td width="80%" style="text-align: center;"><img src="static/images/compare.png"/></td>
+      </div>
+      <p>
+       Image sequence results of our renderer and baselines. The first column of ground truth is the reference image for
+       all methods. The first column of "ours with an additional reference image" is another reference image for our multi-reference
+       method. The video quality can be further improved by providing additional reference images.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Comparison to Baseline</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <table class="table" style="background-color: transparent;">
+          <thead>
+            <tr>
+              <th align="center"><strong>Reference image</strong></th>
+              <th align="center"><strong>Ours</strong></th>
+              <th align="center"><strong>SpeechDrivesTemplate + TPSM</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="33%" style="text-align: center;"><img src="static/video_sample/baseline/0.png"/></td>
+              <td width="33%" style="text-align: center;"><video controls="" ><source src="static/video_sample/baseline/k0ywFgMpFk_multiref_audio.mp4" type="video/mp4"></video></td>
+              <td width="33%" style="text-align: center;"><video controls="" ><source src="static/video_sample/baseline/speechtemp__k0_audio.mp4" type="video/mp4"></video></td>
+            </tr>
+            <tr>
+              <td width="33%" style="text-align: center;"><img src="static/video_sample/baseline/1.png"/></td>
+              <td width="33%" style="text-align: center;"><video controls="" ><source src="static/video_sample/baseline/0nI65jgHG9o_multiref_0_audio.mp4" type="video/mp4"></video></td>
+              <td width="33%" style="text-align: center;"><video controls="" ><source src="static/video_sample/baseline/speechtemp_0nI_0_audio.mp4" type="video/mp4"></video></td>
+            </tr>
+            <tr>
+              <td width="33%" style="text-align: center;"><img src="static/video_sample/baseline/1.png"/></td>
+              <td width="33%" style="text-align: center;"><video controls="" ><source src="static/video_sample/baseline/0nI65jgHG9o_multiref_1_audio.mp4" type="video/mp4"></video></td>
+              <td width="33%" style="text-align: center;"><video controls="" ><source src="static/video_sample/baseline/speechtemp_0nI_1_audio.mp4" type="video/mp4"></video></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Multi-reference vs Single reference</h2>
+        </div>
+      </div>
+      <p>
+        The image in the upper left corner is the reference image for single-reference.
+      </p>
+      <div class="columns is-centered has-text-centered">
+        <table class="table" style="background-color: transparent;">
+          <thead>
+            <tr>
+              <th align="center"><strong>reference images</strong></th>
+              <th align="center"><strong>Multi-reference</strong></th>
+              <th align="center"><strong>single reference</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="33%" style="text-align: center;"><img src="static/video_sample/multi/0.png"/></td>
+              <td width="33%" style="text-align: center;"><video controls="" ><source src="static/video_sample/multi/0_multi_audio.mp4" type="video/mp4"></video></td>
+              <td width="33%" style="text-align: center;"><video controls="" ><source src="static/video_sample/multi/0_single_audio.mp4" type="video/mp4"></video></td>
+            </tr>
+            <tr>
+              <td width="33%" style="text-align: center;"><img src="static/video_sample/multi/1.png"/></td>
+              <td width="33%" style="text-align: center;"><video controls="" ><source src="static/video_sample/multi/1_multiref_audio.mp4" type="video/mp4"></video></td>
+              <td width="33%" style="text-align: center;"><video controls="" ><source src="static/video_sample/multi/1_singleref_audio.mp4" type="video/mp4"></video></td>
+            </tr>
+            <tr>
+              <td width="33%" style="text-align: center;"><img src="static/video_sample/multi/2.png"/></td>
+              <td width="33%" style="text-align: center;"><video controls="" ><source src="static/video_sample/multi/2_multiref_audio.mp4" type="video/mp4"></video></td>
+              <td width="33%" style="text-align: center;"><video controls="" ><source src="static/video_sample/multi/2_singleref_audio.mp4" type="video/mp4"></video></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div>
+</section>
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Licenses</h2>
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
